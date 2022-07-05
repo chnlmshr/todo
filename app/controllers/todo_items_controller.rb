@@ -19,6 +19,11 @@ class TodoItemsController < ApplicationController
     @todo_item.update_attribute(:completed_at, Time.now)
     redirect_to @todo_list, notice: "Task completed!"
   end
+  
+  def recreate
+    @todo_item.update_attribute(:completed_at, nil)
+    redirect_to @todo_list, notice: "Task recreated!"
+  end
    
   private
   
